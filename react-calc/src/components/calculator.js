@@ -10,6 +10,8 @@ const Calculator = () => {
 
   const [result, setResult] = useState('')
 
+  const [err, setErr] = useState('')
+
   const updateNum1 = (event) => {
     setNum1(event.target.value)
   }
@@ -21,15 +23,14 @@ const Calculator = () => {
   const updateOperator = (event) => {
     setOper(event.target.value)
   }
-
-  var err = ""
   
   const calcTotal = () => {
     let total = 0
+    let error = ''
     
     if(isNaN(num1) || isNaN(num2)) {
       total = ""
-      err = "Please provide a valid number for both operands"
+      error = "Please provide a valid number for both operands"
     } else {
     
       switch (oper) {
@@ -51,6 +52,7 @@ const Calculator = () => {
     }
 
     setResult(total)
+    setErr(error)
     console.log(total)
     }
 
