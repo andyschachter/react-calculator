@@ -21,28 +21,37 @@ const Calculator = () => {
   const updateOperator = (event) => {
     setOper(event.target.value)
   }
+
+  var err = ""
   
   const calcTotal = () => {
     let total = 0
     
-    switch (oper) {
-      case "+":
-        total = parseInt(num1) + parseInt(num2);
-        break;
-      case "-":
-        total = num1 - num2;
-        break;
-      case "*":
-        total = num1 * num2;
-        break;
-      case "/":
-        total = num1 / num2;
-        break;
-      default:
-        total = "";
-      }
+    if(isNaN(num1) || isNaN(num2)) {
+      total = ""
+      err = "Please provide a valid number for both operands"
+    } else {
+    
+      switch (oper) {
+        case "+":
+          total = parseFloat(num1) + parseFloat(num2);
+          break;
+        case "-":
+          total = parseFloat(num1) - parseFloat(num2);
+          break;
+        case "*":
+          total = parseFloat(num1) * parseFloat(num2);
+          break;
+        case "/":
+          total = parseFloat(num1) / parseFloat(num2);
+          break;
+        default:
+          total = "";
+        }
+    }
 
     setResult(total)
+    console.log(total)
     }
 
   return (
@@ -50,15 +59,18 @@ const Calculator = () => {
       <h1>React Calculator</h1>
       <div>
         <input type="text" name="numberOne" value={num1} onChange={updateNum1} />
-        <select id= "operators" value={oper} onChange={updateOperator}>
-          <option value="plus">+</option>
-          <option value="minus">-</option>
-          <option value="multiply">*</option>
-          <option value="divide">/</option>
+        <select id= "operators" onChange={updateOperator}>
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="*">*</option>
+          <option value="/">/</option>
         </select>
         <input type="text" name="numberTwo" value={num2} onChange={updateNum2} />
-        <input type="button" value="=" onclick={calcTotal}/>
+        <input type="button" value="=" onClick={calcTotal}/>
         <input type="text" id="result" value={result} readOnly/>
+      </div>
+      <div className="error">
+        {err}
       </div>
     </div>
   )
