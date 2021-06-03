@@ -18,20 +18,47 @@ const Calculator = () => {
     setNum2(event.target.value)
   }
 
+  const updateOperator = (event) => {
+    setOper(event.target.value)
+  }
+  
+  const calcTotal = () => {
+    let total = 0
+    
+    switch (oper) {
+      case "+":
+        total = parseInt(num1) + parseInt(num2);
+        break;
+      case "-":
+        total = num1 - num2;
+        break;
+      case "*":
+        total = num1 * num2;
+        break;
+      case "/":
+        total = num1 / num2;
+        break;
+      default:
+        total = "";
+      }
+
+    setResult(total)
+    }
+
   return (
     <div className="calculator">
       <h1>React Calculator</h1>
       <div>
-        <input type="number" name="numberOne" onChange={updateNum1} />
-        <select id= "operators">
+        <input type="text" name="numberOne" value={num1} onChange={updateNum1} />
+        <select id= "operators" value={oper} onChange={updateOperator}>
           <option value="plus">+</option>
           <option value="minus">-</option>
           <option value="multiply">*</option>
           <option value="divide">/</option>
         </select>
-        <input type="number" name="numberTwo" onChange={updateNum2} />
-        <input type="button" value="=" onclick=""/>
-        <input type="number" id="result" onChange={setResult}/>
+        <input type="text" name="numberTwo" value={num2} onChange={updateNum2} />
+        <input type="button" value="=" onclick={calcTotal}/>
+        <input type="text" id="result" value={result} readOnly/>
       </div>
     </div>
   )
