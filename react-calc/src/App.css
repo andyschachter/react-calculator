@@ -1,38 +1,33 @@
+body {
+  background-image: url('./Count.jpg');
+  background-size: contain;
+  color:salmon;
+  text-shadow: -1px -1px 0 #128, 1px -1px 0 #128, -1px 1px 0 #128, 1px 1px 0 #128;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input[type=text] {
+  margin: 5px;
+  background-color:salmon;
+  border:10px;
+  border-radius: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 30px;
+  color:navy;
+  text-align:center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input[type=button], select {
+  margin: 5px;
+  background-color:navy;
+  color:salmon;
+  font-size:30px;
+  font-family:inherit;
+  border-radius: 50px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
