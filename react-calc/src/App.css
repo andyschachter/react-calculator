@@ -1,0 +1,33 @@
+body {
+  background-image: url('./Count.jpg');
+  background-size: contain;
+  color:salmon;
+  text-shadow: -1px -1px 0 #128, 1px -1px 0 #128, -1px 1px 0 #128, 1px 1px 0 #128;
+}
+
+.App {
+  text-align: center;
+}
+
+input[type=text] {
+  margin: 5px;
+  background-color:salmon;
+  border:10px;
+  border-radius: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 30px;
+  color:navy;
+  text-align:center;
+}
+
+input[type=button], select {
+  margin: 5px;
+  background-color:navy;
+  color:salmon;
+  font-size:30px;
+  font-family:inherit;
+  border-radius: 50px;
+}
+
+
+
